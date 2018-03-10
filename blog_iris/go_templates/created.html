@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Title</title>
+	<meta charset="utf-8">
+    <style>
+        body{
+            font-size: 1.2em;
+            background-color: #e9eaea;
+        }
+        img{
+            max-width: 100%; 
+        }
+        h1{color: red}
+
+#post{
+    margin: 0 auto;
+	}
+#frame{
+	padding: 20px;
+	width: 1426px;
+	height: 2000px;
+	overflow: auto;
+    margin: auto;
+}
+.image{
+    overflow: hidden;
+    max-width: 300px;
+}
+
+#frame2{
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    float: left;
+    width: 322px;
+    height: 380px;
+    margin: 15px;
+    background-color: white;
+   
+}
+.title{
+    font-family: Roboto;
+    font-size: 1.4em;
+}
+
+.type{
+    float: left;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+.date{
+    width: 40%;
+    float: left;
+    box-sizing: border-box;
+}
+.type span{
+    border: 1px solid slategrey;
+    border-radius: 3px;
+    padding: 5px;
+}
+.text{
+    width: 100%;
+    float: left;
+    border-radius: 3px;
+    padding: 5px;
+}
+    </style>
+</head>
+	<body>
+            <a href="/post"><img style="width: 70px; margin: 15px">All Posts</a>
+            <br>
+            <a href="/post/publish"><img style="width: 70px; margin: 15px">Publish Posts</a>
+		<div id="frame">
+        <h2>Created</h2>
+        <br>
+        <div class="image"><img src="{{.Image}}"></div>
+
+        <div class="title">
+            <p><b>Title: {{.Title}}</b> </p>
+        </div>
+        <div>
+            <p>Alias: {{.Alias}} </p>
+        </div>
+        <div>
+            <span>Published: {{.Published}}</span>
+        </div>
+        <br>
+        <div class="date">
+            <span>Created_at: {{.Created_at}}</span>
+        </div>
+        
+
+                    
+		</div>
+
+
+	</body>
+</html>

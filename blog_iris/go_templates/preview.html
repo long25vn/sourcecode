@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Title</title>
+	<meta charset="utf-8">
+    <style>
+        body{
+            background-color: #e9eaea;
+            font-size: 1.5em;
+        }
+        img{
+            max-width: 100%; 
+        }
+        h1{color: red}
+
+#post{
+    margin: 0 auto;
+	}
+#frame{
+	padding: 20px;
+	width: 1426px;
+	height: 2000px;
+	overflow: auto;
+    margin: auto;
+}
+.image{
+    max-height: 230px;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+#frame2{
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    float: left;
+    width: 322px;
+    height: 460px;
+    margin: 15px;
+    background-color: white;
+   
+}
+.title{
+    font-family: Roboto;
+    font-size: 1.4em;
+    text-align: center;
+}
+.author{
+    font-family: Roboto;
+    text-align: center;
+}
+.type{
+    width: 40%;
+    float: left;
+    font-family: sans-serif;
+    padding: 15px;
+    margin-left: 5px;
+    box-sizing: border-box;
+}
+.date{
+    width: 20%;
+    float: left;
+    font-family: sans-serif;
+    padding: 15px;
+    margin-left: 70px;
+    box-sizing: border-box;
+}
+.type span{
+    border: 1px solid slategrey;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+    </style>
+</head>
+	<body>
+            <a href="/post">/All Posts</a>
+            <br>
+            <a href="/create">/Create Posts</a>
+        <br>
+		<div id="frame">
+        <br>
+                {{range .}}
+                <a href="/post/{{.Id}}">
+                    <div id="frame2">
+                        <div class="image"><img src="{{.Image}}"></div>
+                        <div class="title">
+                            <p><b>{{.Title}}</b> </p>
+                        </div>
+                        <div class="type">
+                            <span>{{.Published}}</span>
+                        </div>
+                        <div class="date">
+                            <span>Date</span>
+                        </div>
+                        
+                        <br>
+                    </div>
+                </a>
+                {{end}}
+		</div>
+
+
+	</body>
+</html>
