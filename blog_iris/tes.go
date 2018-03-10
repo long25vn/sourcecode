@@ -1,4 +1,4 @@
-package main
+package test
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 	"github.com/kataras/iris"
 	"strconv"
 ) 
-
+ 
 type Post struct {
 	Id             int16
 	Title          string
@@ -26,7 +26,7 @@ type Post struct {
 	Author_visible string
 }
 
-func main() {
+func test() {
 	user := "postgres"
 	password := "123"
 	database := "postgres"

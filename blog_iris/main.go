@@ -1,12 +1,13 @@
 package main
 
 import (
-	_"fmt"
+	_ "fmt"
+	"strconv"
 	"time"
+
 	"./Db"
 	"github.com/kataras/iris"
-	"strconv"
-) 
+)
 
 type Post struct {
 	Id             int16
@@ -25,11 +26,12 @@ type Post struct {
 	Modified_by    string
 	Author_visible string
 }
+
 func main() {
 	user := "postgres"
 	password := "123"
 	database := "postgres"
-	db := Db.ConnectToDb(user,password,database)
+	db := Db.ConnectToDb(user, password, database)
 
 	app := iris.New()
 	app.RegisterView(iris.HTML("./go_templates", ".html").Reload(true))
@@ -40,7 +42,6 @@ func main() {
 			ctx.WriteString(err.Error())
 		}
 	})
-
 
 	app.Post("/created", func(ctx iris.Context) {
 		post := Post{}
@@ -58,7 +59,7 @@ func main() {
 		ctx.ViewData("Published", post.Published)
 		ctx.ViewData("Full_text", post.Full_text)
 		ctx.View("created.html")
-		Db.Insertdata(db,post.Title,post.Alias,"null",post.Full_text,post.Image,post.Published,t)
+		Db.Insertdata(db, post.Title, post.Alias, "null", post.Full_text, post.Image, post.Published, t)
 		ctx.Writef("%v", post)
 
 	})
