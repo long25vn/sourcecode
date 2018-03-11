@@ -27,6 +27,9 @@ func main() {
 	app.Get("/preview", control.GetPublishPost)
 	app.Get("/post/{id}",control.DetailsPost)
 	app.Get("/post/modified/{id}", control.ModifiedPost)
+	app.Get("/post/delete/{id}", control.DeletePost)
+
+	app.Get("/api", control.Api)
 
 	app.Run(iris.Addr(":8080"))
 }

@@ -14,6 +14,7 @@
         img {
             max-width: 100%;
         }
+
         a:visited {
             color: black;
         }
@@ -39,9 +40,7 @@
     <p>Full_text: {{.Full_text}}</p>
     <a href="/post/modified/{{.Id}}">Edit</a>
     <br>
-    <a href="/post">Delete</a>
-
-
+    <a href="/post/delete/{{.Id}}">Delete</a>
 </body>
 
 </html>
