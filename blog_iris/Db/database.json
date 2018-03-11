@@ -1,0 +1,12 @@
+{
+    "database": {
+        "user": "postgres",
+        "password": "123",
+        "database": "postgres"
+    },
+    "database2": {
+        "user": "",
+        "password": "",
+        "database": ""
+    }
+}

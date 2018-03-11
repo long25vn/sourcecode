@@ -20,3 +20,11 @@ type Post struct {
 	Modified_by    string
 	Author_visible string
 }
+
+type Data struct {
+	Database struct {
+		User     string `json:"user"`
+		Password string `json:"password"`
+		Database string `json:"database"`
+	} `json:"database"`
+}
