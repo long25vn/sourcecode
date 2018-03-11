@@ -23,7 +23,7 @@ func ConnectToDb(user, password, database string) (db *pg.DB) {
 	return db
 }
 
-func Getdata(db *pg.DB, id int16) (data Post) {
+func Getbyid(db *pg.DB, id int16) (data Post) {
 	data = Post{Id: id}
 	err := db.Select(&data)
 	if err != nil {

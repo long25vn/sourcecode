@@ -7,5 +7,5 @@ import (
 )
 func Api(ctx iris.Context) {
 	data := Db.Getall(db)
-	ctx.JSON(data)	
+	ctx.JSON(data)
 }

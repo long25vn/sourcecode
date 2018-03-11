@@ -32,6 +32,7 @@ func main() {
 	app.Get("/post/delete/{id}", control.DeletePost)
 
 	app.Get("/api", control.Api)
+	app.Get("/api/{id}",control.ApiDetails)
 
 	app.Run(iris.Addr(":8080"))
 }
