@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-size: 18px;
+            background-color: #e9eaea;
+            font-family: monospace;
+        }
+
+        a:visited {
+            color: black;
+        }
+
+        img{
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/post">All Posts</a>
+    <h2>Created</h2>
+    <br>
+    <div class="image"></div>
+    <img src="{{.Image}}">
+    </div>
+
+    <p><b>Title: {{.Title}}</b></p>
+    <p>--------------------------</p>
+    <p>Alias: {{.Alias}} </p>
+    <p>Published: {{.Published}}<p>
+    <p>Intro_text: {{.Intro_text}}</p>
+    <p>Full_text: {{.Full_text}}</p>
+    <p>--------------------------</p>
+    <p>Create_by: </p>
+    <p>Create_at: {{.Created_at}}</p>
+</body>
+
+</html>

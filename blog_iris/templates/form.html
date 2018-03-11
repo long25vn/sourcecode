@@ -26,8 +26,7 @@
     .asteriskField {
       color: red;
     }
-  </style>
-  <style>
+
     .bootstrap-iso .btn-success {
       background-color: #337ab7;
       border-color: #337ab7;
@@ -36,6 +35,10 @@
     body {
       font-size: 18px;
       font-family: monospace;
+    }
+
+    a:visited {
+      color: black;
     }
   </style>
   <a href="/post">/All Posts</a>
@@ -77,7 +80,7 @@
             </div>
             <div class="form-group ">
               <label class="control-label col-sm-2" for="Image">
-                Image
+                Image Link Address
               </label>
               <div class="col-sm-10">
                 <input class="form-control" id="Image" name="Image" placeholder="Image" type="text" />
@@ -101,8 +104,18 @@
             </div>
 
             <div class="form-group ">
+              <label class="control-label col-sm-2" for="Intro_text">
+                Intro Text
+              </label>
+              <div class="col-sm-10">
+                <!-- <textarea cols="40" id="Intro_text" name="Intro_text" rows="10"></textarea> -->
+                <textarea class="form-control" name="Intro_text" id="Intro_text" rows="3" cols="40"></textarea>
+              </div>
+            </div>
+
+            <div class="form-group ">
               <label class="control-label col-sm-2" for="Full_text">
-                Paragraph
+                Full Text
               </label>
               <div class="col-sm-10">
                 <textarea cols="40" id="Full_text" name="Full_text" rows="10"></textarea>

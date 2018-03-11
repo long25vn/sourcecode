@@ -16,8 +16,11 @@ func main() {
 	control.ConnDb(user, password, database) 
  
 	app := iris.New()
-	app.RegisterView(iris.HTML("./go_templates", ".html").Reload(true))
+	app.RegisterView(iris.HTML("./templates", ".html").Reload(true))
 
+	app.Get("/", func (ctx iris.Context) {
+		ctx.View("menu.html")
+	})
 	app.Get("/post", control.GetAllPost)
 	app.Get("/create", control.CreatePost)
 	app.Post("/created", control.CreatedPost)

@@ -55,3 +55,10 @@ func Insertdata(db *pg.DB, title, alias, intro_text, full_text, image string, pu
 	}
 	return data
 }
+func Deletedata(db *pg.DB, id int16){
+	data := Post{Id: id}
+	err := db.Delete(&data)
+	if err != nil {
+		panic(err)
+	}
+}

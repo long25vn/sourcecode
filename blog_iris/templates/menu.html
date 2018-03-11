@@ -10,23 +10,18 @@
             background-color: #e9eaea;
             font-family: monospace;
         }
+
+        a:visited {
+            color: black;
+        }
     </style>
 </head>
 
 <body>
-    <a href="/post">All Posts</a>
-    <h2>Created</h2>
+    <a href="/post">/All Posts</a>
     <br>
-    <div class="image"></div>
-    <img src="{{.Image}}">
-    </div>
-
-    <p>
-        <b>Title: {{.Title}}</b>
-    </p>
-    <p>Alias: {{.Alias}} </p>
-    Published: {{.Published}}
-    <br> Created_at: {{.Created_at}}
+    <a href="/create">/Create Posts</a>
+    <br>
 </body>
 
 </html>

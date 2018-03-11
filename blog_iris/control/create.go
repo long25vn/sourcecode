@@ -30,9 +30,9 @@ func CreatedPost(ctx iris.Context) {
 	t1 := time.Now().Format(time.RFC850)
 	ctx.ViewData("Created_at", t1)
 	ctx.ViewData("Published", post.Published)
+	ctx.ViewData("Intro_text", post.Intro_text)
 	ctx.ViewData("Full_text", post.Full_text)
 	ctx.View("created.html")
-	Db.Insertdata(db, post.Title, post.Alias, "null", post.Full_text, post.Image, post.Published, t)
-	ctx.Writef("%v", post)
+	Db.Insertdata(db, post.Title, post.Alias, post.Intro_text, post.Full_text, post.Image, post.Published, t)
 
 }
