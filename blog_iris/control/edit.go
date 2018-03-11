@@ -1,22 +1,21 @@
 package control
 
 import (
+	"strconv"
 	"time"
-
 	"../Db"
-	"github.com/go-pg/pg"
 	"github.com/kataras/iris"
 )
 
-var db *pg.DB
+func Edit(ctx iris.Context) {
+	temp := ctx.Params().Get("id")
+	i, _ := strconv.Atoi(temp)
+	i1 := int16(i)
+	data := Db.Edit(db, i1)
+	ctx.View("edit.html", data)
 
-func CreatePost(ctx iris.Context) {
-	if err := ctx.View("create.html"); err != nil {
-		ctx.StatusCode(iris.StatusInternalServerError)
-		ctx.WriteString(err.Error())
-	}
 }
-func CreatedPost(ctx iris.Context) {
+func Edited(ctx iris.Context) {
 	post := Db.Post{}
 	err := ctx.ReadForm(&post)
 	if err != nil {
@@ -26,12 +25,15 @@ func CreatedPost(ctx iris.Context) {
 	ctx.ViewData("Title", post.Title)
 	ctx.ViewData("Alias", post.Alias)
 	ctx.ViewData("Image", post.Image)
-	t1 := time.Now().Local().Format(time.RFC822)
+	t1 := time.Now().Local().Format("2006-01-02 10:20:58")
 	ctx.ViewData("Created_at", t1)
 	ctx.ViewData("Published", post.Published)
 	ctx.ViewData("Intro_text", post.Intro_text)
 	ctx.ViewData("Full_text", post.Full_text)
-	ctx.View("created.html")
-	Db.Insertdata(db, post.Title, post.Alias, post.Intro_text, post.Full_text, post.Image, post.Published, t1)
+	ctx.View("edited.html")
+	temp := ctx.Params().Get("id")
+	i, _ := strconv.Atoi(temp)
+	i1 := int16(i)
+	Db.Update(db, post.Title, post.Alias, post.Intro_text, post.Full_text, post.Image, post.Published, t1, i1)
 
 }

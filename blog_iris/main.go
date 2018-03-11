@@ -1,8 +1,8 @@
 package main
 
 import (
-	_ "fmt"
-
+	"fmt"
+	"time"
 	"./control"
 	"github.com/kataras/iris"
 )
@@ -13,6 +13,7 @@ const (
 )
 
 func main() {
+	fmt.Println(time.Now().Local().Format("2006-01-02"))
 	control.ConnDb(user, password, database) 
  
 	app := iris.New()
@@ -26,7 +27,8 @@ func main() {
 	app.Post("/created", control.CreatedPost)
 	app.Get("/preview", control.GetPublishPost)
 	app.Get("/post/{id}",control.DetailsPost)
-	app.Get("/post/modified/{id}", control.ModifiedPost)
+	app.Get("/post/edit/{id}", control.Edit)
+	app.Post("/post/edited/{id}", control.Edited)
 	app.Get("/post/delete/{id}", control.DeletePost)
 
 	app.Get("/api", control.Api)

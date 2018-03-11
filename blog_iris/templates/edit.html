@@ -14,7 +14,7 @@
     .bootstrap-iso .formden_header h2,
     .bootstrap-iso .formden_header p,
     .bootstrap-iso form {
-      font-family: monospace, Helvetica, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       color: black
     }
 
@@ -26,15 +26,15 @@
     .asteriskField {
       color: red;
     }
-
     .bootstrap-iso .btn-success {
+      color: #ffffff;
       background-color: #337ab7;
       border-color: #337ab7;
     }
 
     body {
-      font-size: 18px;
-      font-family: monospace;
+      font-size: 1.5em;
+      background-color: #e9eaea;
     }
 
     a:visited {
@@ -43,17 +43,16 @@
   </style>
   <a href="/post">/All Posts</a>
   <br>
-  <a href="/create">/Create Posts</a>
-  <br>
+  <a href="/create">/Create Post</a>
   <div class="bootstrap-iso">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-12">
-          <h1 style="margin: 100px 0 0 100px; font-family: monospace">
+          <h1 style="color:#147698; margin-top:25px; font-family: initial">
             <b>Create Post</b>
           </h1>
           <br>
-          <form class="form-horizontal" method="post" action="/created" role="form">
+          <form class="form-horizontal" method="post" action="/post/edited/{{.Id}}" role="form">
 
             <br>
             <div class="form-group ">
@@ -64,7 +63,8 @@
                 </span>
               </label>
               <div class="col-sm-10">
-                <input class="form-control" id="Title" name="Title" placeholder="Type a Title" type="text" />
+                <input class="form-control" id="Title" name="Title" placeholder="Type a Title" type="text" value="{{.Title}}" required="required"
+                />
               </div>
             </div>
             <div class="form-group ">
@@ -75,7 +75,8 @@
                 </span>
               </label>
               <div class="col-sm-10">
-                <input class="form-control" id="Alias" name="Alias" placeholder="Type a Alias" type="text" />
+                <input class="form-control" id="Alias" name="Alias" placeholder="Type a Alias" type="text" value="{{.Alias}}" required="required"
+                />
               </div>
             </div>
             <div class="form-group ">
@@ -83,7 +84,8 @@
                 Image Link Address
               </label>
               <div class="col-sm-10">
-                <input class="form-control" id="Image" name="Image" placeholder="Image" type="text" />
+                <input class="form-control" id="Image" name="Image" placeholder="Image" type="text" value="{{.Image}}" required="required"
+                />
               </div>
             </div>
 
@@ -109,23 +111,23 @@
               </label>
               <div class="col-sm-10">
                 <!-- <textarea cols="40" id="Intro_text" name="Intro_text" rows="10"></textarea> -->
-                <textarea class="form-control" name="Intro_text" id="Intro_text" rows="3" cols="40"></textarea>
+                <textarea class="form-control" name="Intro_text" id="Intro_text" rows="3" cols="40" value="{{.Intro_text}}" required="required">{{.Intro_text}}</textarea>
               </div>
             </div>
 
             <div class="form-group ">
               <label class="control-label col-sm-2" for="Full_text">
-                Full Text
+                Full_text
               </label>
               <div class="col-sm-10">
-                <textarea cols="40" id="Full_text" name="Full_text" rows="10"></textarea>
+                <textarea cols="40" id="Full_text" name="Full_text" rows="10" value="{{.Full_text}}" required="required">{{.Full_text}}</textarea>
                 <!-- <textarea class="form-control" name="Full_text" id="Full_text" rows="10" cols="40"></textarea> -->
               </div>
             </div>
             <div class="form-group">
               <div class="col-sm-10 col-sm-offset-2">
                 <button class="btn btn-success " name="submit" type="submit">
-                  Create
+                  Edit
                 </button>
               </div>
             </div>

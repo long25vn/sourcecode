@@ -12,7 +12,16 @@
         }
 
         img {
-            max-width: 100%;
+            max-height: 230px;
+            max-width: 317px;
+        }
+        .image {
+            border: 1px solid #3333339c;
+            max-height: 230px;
+            overflow: hidden;
+            width: 322px;
+            padding: 5px;
+            border-radius: 5px;
         }
 
         a:visited {
@@ -28,19 +37,21 @@
     <br>
     <p>Post Details</p>
     <div class="image">
-        <img src="{{.Image}}">
+        <img src="{{.Image}}" alt="Image Link Address">
     </div>
-    <p>Title: {{.Title}}</p>
+    <p><b>Title: {{.Title}}</b></p>
+    <p>--------------------------</p>
     <p>Alias: {{.Alias}} </p>
-    <p>Published: {{.Published}}</p>
-    <p>Created_at: {{.Created_at}}</p>
-    <p>Category:</p>
-    <p>Author:</p>
+    <p>Published: {{.Published}}<p>
     <p>Intro_text: {{.Intro_text}}</p>
     <p>Full_text: {{.Full_text}}</p>
-    <a href="/post/modified/{{.Id}}">Edit</a>
+    <p>--------------------------</p>
+    <p>Create_by: </p>
+    <p>Create_at: {{.Created_at}}</p>
     <br>
-    <a href="/post/delete/{{.Id}}">Delete</a>
+    <a href="/post/edit/{{.Id}}" style="font-size: 24px; color: red;">Edit</a>
+    <br>
+    <a href="/post/delete/{{.Id}}" style="font-size: 24px; color: red;">Delete</a>
 </body>
 
 </html>

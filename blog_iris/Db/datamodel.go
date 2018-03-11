@@ -1,7 +1,6 @@
 package Db
 
 import (
-	"time"
 )
 
 type Post struct {
@@ -12,10 +11,10 @@ type Post struct {
 	Full_text      string
 	Image          string
 	Published      string
-	Published_at   time.Time
+	Published_at   string
 	Categories     string
 	Type           string
-	Created_at     time.Time
+	Created_at     string
 	Created_by     string
 	Modified_at    string
 	Modified_by    string

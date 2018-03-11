@@ -2,7 +2,6 @@ package Db
 
 import (
 	"fmt"
-	"time"
 
 	"github.com/go-pg/pg"
 )
@@ -40,13 +39,12 @@ func Getpublished(db *pg.DB) (data []Post) {
 	_ = db.Model(&data).Where("published LIKE ?", "publish%").Select()
 	return data
 }
-func Modified(db *pg.DB, idpost int16) (data Post) {
+func Edit(db *pg.DB, idpost int16) (data Post) {
 	data = Post{Id: idpost}
 	_ = db.Select(&data)
-	fmt.Println(data)
 	return data
 }
-func Insertdata(db *pg.DB, title, alias, intro_text, full_text, image string, published string, created_at time.Time) (data Post) {
+func Insertdata(db *pg.DB, title, alias, intro_text, full_text, image string, published string, created_at string) (data Post) {
 	data = Post{Title: title, Alias: alias, Intro_text: intro_text,
 		Full_text: full_text, Image: image, Published: published, Created_at: created_at}
 	err := db.Insert(&data)
@@ -61,4 +59,11 @@ func Deletedata(db *pg.DB, id int16){
 	if err != nil {
 		panic(err)
 	}
+}
+func Update(db *pg.DB, title, alias, intro_text, full_text, image string, published string, created_at string, id int16) (data Post) {
+	_, _ = db.Model(&data).
+	Set("title = ?, alias = ?, intro_text = ?, full_text = ? , image = ?, published = ?", title, alias, intro_text, full_text, image, published).
+	Where("id = ?", id).Update()
+
+	return data
 }
