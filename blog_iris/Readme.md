@@ -1,3 +1,20 @@
+# A Blog with Iris
+
+### Preview Published Posts
+
+![](https://raw.githubusercontent.com/TechMaster/SampleGoWebApp/master/blog_iris/images/preview.jpg)
+
+### All post
+
+![](https://raw.githubusercontent.com/TechMaster/SampleGoWebApp/master/blog_iris/images/allposts.jpg)
+
+### Details post
+
+![](https://raw.githubusercontent.com/TechMaster/SampleGoWebApp/master/blog_iris/images/details.jpg)
+
+## Install
+
+
 create table posts with this form
 
     create table posts (
@@ -19,4 +36,6 @@ create table posts with this form
     );
 
 
-and command  ` go run main.go`
+and run command
+
+    go run main.go
