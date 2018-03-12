@@ -1,9 +1,9 @@
-package control
+package controller
 
 import (
 	"time"
 
-	"../Db"
+	"../models"
 	"github.com/go-pg/pg"
 	"github.com/kataras/iris"
 )
@@ -17,7 +17,7 @@ func CreatePost(ctx iris.Context) {
 	}
 }
 func CreatedPost(ctx iris.Context) {
-	post := Db.Post{}
+	post := model.Post{}
 	err := ctx.ReadForm(&post)
 	if err != nil {
 		ctx.StatusCode(iris.StatusInternalServerError)
@@ -32,6 +32,6 @@ func CreatedPost(ctx iris.Context) {
 	ctx.ViewData("Intro_text", post.Intro_text)
 	ctx.ViewData("Full_text", post.Full_text)
 	ctx.View("created.html")
-	Db.Insertdata(db, post.Title, post.Alias, post.Intro_text, post.Full_text, post.Image, post.Published, t1)
+	model.Insertdata(db, post.Title, post.Alias, post.Intro_text, post.Full_text, post.Image, post.Published, t1)
 
 }

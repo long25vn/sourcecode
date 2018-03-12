@@ -1,11 +1,11 @@
-package control
+package controller
 
 import (
-	"../Db"
+	"../models"
 
 	"github.com/kataras/iris"
 )
 func Api(ctx iris.Context) {
-	data := Db.Getall(db)
+	data := model.Getall(db)
 	ctx.JSON(data)
 }

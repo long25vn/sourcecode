@@ -1,9 +1,9 @@
-package control
+package controller
 
 import (
 	"strconv"
 	"time"
-	"../Db"
+	"../models"
 	"github.com/kataras/iris"
 )
 
@@ -11,12 +11,12 @@ func Edit(ctx iris.Context) {
 	temp := ctx.Params().Get("id")
 	i, _ := strconv.Atoi(temp)
 	i1 := int16(i)
-	data := Db.Edit(db, i1)
+	data := model.Edit(db, i1)
 	ctx.View("edit.html", data)
 
 }
 func Edited(ctx iris.Context) {
-	post := Db.Post{}
+	post := model.Post{}
 	err := ctx.ReadForm(&post)
 	if err != nil {
 		ctx.StatusCode(iris.StatusInternalServerError)
@@ -34,6 +34,6 @@ func Edited(ctx iris.Context) {
 	temp := ctx.Params().Get("id")
 	i, _ := strconv.Atoi(temp)
 	i1 := int16(i)
-	Db.Update(db, post.Title, post.Alias, post.Intro_text, post.Full_text, post.Image, post.Published, t1, i1)
+	model.Update(db, post.Title, post.Alias, post.Intro_text, post.Full_text, post.Image, post.Published, t1, i1)
 
 }

@@ -1,10 +1,10 @@
-package control
+package controller
 
 import (
 	"encoding/json"
 	"os"
 
-	"../Db"
+	"../models"
 )
 
 type Data struct {
@@ -12,6 +12,7 @@ type Data struct {
 		User     string `json:"user"`
 		Password string `json:"password"`
 		Database string `json:"database"`
+		Addr string `json:"addr"`
 	} `json:"database"`
 }
 
@@ -25,6 +26,6 @@ func LoadfileJson(file string) Data {
 }
 
 func ConnDb() {
-	info := LoadfileJson("./Db/database.json")
-	db = Db.ConnectToDb(info.Database.User, info.Database.Password, info.Database.Database)
+	info := LoadfileJson("./models/database.json")
+	db = model.ConnectToDb(info.Database.User, info.Database.Password, info.Database.Database, info.Database.Addr)
 }

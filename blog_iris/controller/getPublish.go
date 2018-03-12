@@ -1,11 +1,11 @@
-package control
+package controller
 
 import (
-	"../Db"
+	"../models"
 	"github.com/kataras/iris"
 ) 
 
 func GetPublishPost(ctx iris.Context) {
-	data := Db.Getpublished(db)
+	data := model.Getpublished(db)
 	ctx.View("preview.html", data)
 } 

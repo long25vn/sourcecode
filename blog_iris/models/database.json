@@ -2,7 +2,8 @@
     "database": {
         "user": "postgres",
         "password": "123",
-        "database": "postgres"
+        "database": "postgres",
+        "addr": "localhost:5432"
     },
     "database2": {
         "user": "",
