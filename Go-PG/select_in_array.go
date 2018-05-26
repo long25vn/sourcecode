@@ -9,7 +9,7 @@ import (
 func selectinarray(db *pg.DB) {
 	var book []Book
 	err := db.Model(&book).
-		Where("publish @> '{?}'", 2015).
+		Where("publish @> '{?}'", 2016).
 		Select()
 
 	if err != nil {
