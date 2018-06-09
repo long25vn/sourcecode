@@ -1,0 +1,11 @@
+
+syntax = "proto3";
+
+package auth;
+
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+
+message Shine { 
+  bytes table_name = 1 [(gogoproto.moretags) = "sql:\"auth.random\""];
+  string random = 2;
+}
