@@ -1,2 +1,1 @@
-email.json merge=ours
-email.json merge=dev
+email.json merge=ours merge=dev
