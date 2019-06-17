@@ -27,8 +27,8 @@ func routeDemo(ctx iris.Context) {
 
 	var book int32
 	_, err := db.Query(&book, `
-		SELECT discount_value
-		FROM promotion.voucher WHERE id = 'bk3hcovbuiv1e2tpgvt0'
+		SELECT count(id)
+		FROM library.book WHERE category = 'literary'
 	`)
 	if err != nil {
 		fmt.Print(err)
