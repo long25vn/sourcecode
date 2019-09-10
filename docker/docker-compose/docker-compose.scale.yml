@@ -1,0 +1,18 @@
+# Docker-compose nhiều container
+
+# docker-compose -f docker-compose.multi.yml scale container1=3
+
+version: "3"
+services:
+  container1:
+    image: containous/whoami
+    networks:
+      - backend
+  container2:
+    image: nginx:alpine
+    ports:
+      - 9090:80
+    networks:
+    - backend
+networks:
+  backend:

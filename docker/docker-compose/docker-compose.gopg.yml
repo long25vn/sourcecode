@@ -1,0 +1,46 @@
+# Kết hợp với GoPg với postgres, yêu cầu postgres chạy xong xuôi mới chạy go-pg
+
+# chạy trước (start postgres trc)
+# docker-compose -f docker-compose.gopg.yml up -d --build containerpostgres
+
+# chạy sau (start go-pg sau)
+# docker-compose -f docker-compose.gopg.yml up -d --build container
+
+
+version: "3.7"
+services:
+  containernginx1:
+    image: nginx:alpine
+    ports:
+      - 8082:80
+    networks:
+      - backend
+
+  containernginx2:
+    image: nginx:alpine
+    ports:
+      - 8083:80
+    networks:
+      - backend
+
+  container:
+    build: ../gopg
+    depends_on:
+    - containerpostgres
+    ports:
+      - 9090:8080
+    networks:
+    - backend
+
+  containerpostgres:
+    image: postgres:11-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123456
+    ports:
+      - 5432:5432
+    networks:
+      - backend
+
+networks:
+  backend:

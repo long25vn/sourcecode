@@ -1,0 +1,14 @@
+hash: 5716367524cf737a99eddec2afe82f5fb381c80f50128fe18282326829f1ded5
+updated: 2019-09-04T21:09:57.100397+07:00
+imports:
+- name: github.com/fatih/color
+  version: 5b77d2a35fb0ede96d138fc9a99f5c9b6aef11b4
+- name: github.com/mattn/go-colorable
+  version: 388941e3ea99c461d2bc2747eaf27741b6dda096
+- name: github.com/mattn/go-isatty
+  version: bf9a1dea1961e1d831824fb135332bfb8c10e8b8
+- name: golang.org/x/sys
+  version: 43c01164e93111c754a278ab423ba01063c44917
+  subpackages:
+  - unix
+testImports: []

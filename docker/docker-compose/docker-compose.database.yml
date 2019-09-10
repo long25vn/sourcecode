@@ -1,0 +1,16 @@
+# Tách compose làm 2 docker-compose.service.yml và docker-compose.database.yml
+
+version: "3.7"
+services:
+  containerpostgres:
+    image: postgres:11-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123456
+    ports:
+      - 5432:5432
+    networks:
+      - backend
+
+networks:
+  backend:

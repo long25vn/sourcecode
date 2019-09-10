@@ -1,0 +1,13 @@
+# Tách compose làm 2 docker-compose.service.yml và docker-compose.database.yml
+
+version: "3.7"
+services:
+  container:
+    build: ../gopg
+    ports:
+      - 9090:8080
+    networks:
+    - backend
+
+networks:
+  backend:

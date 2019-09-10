@@ -1,0 +1,4 @@
+package: .
+import:
+- package: github.com/fatih/color
+  version: v1.7.0

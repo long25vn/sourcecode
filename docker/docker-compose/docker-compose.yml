@@ -1,0 +1,8 @@
+# Docker-compose một container
+
+version: "3"
+services:
+  container1:
+    image: nginx:alpine
+    ports:
+      - 9092:80

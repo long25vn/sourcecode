@@ -1,0 +1,28 @@
+# Docker-compose nhiều container
+
+version: "3"
+services:
+  container1:
+    image: nginx:alpine
+    container_name: container1
+    ports:
+      - 9091:80
+    # volumes:
+    #   - esdata1:/usr/share/elasticsearch/data
+    networks:
+      - backend
+
+  container2:
+    image: nginx:alpine
+    ports:
+      - 9092:80
+    networks:
+    - backend
+
+  container3:
+    image: containous/whoami
+    networks:
+    - backend
+
+networks:
+  backend:
